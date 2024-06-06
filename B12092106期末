@@ -1,1 +1,18 @@
+<?php
+    // 開始一個新的會話或重用現有的會話
+    session_start();
 
+    // 清除指定的會話變量 "id"
+    // 這通常用於登出過程，移除用戶的身份標識
+    unset($_SESSION["id"]);
+
+    // 向用戶顯示一個登出成功的消息
+    echo "登出成功....";
+
+    // 使用 meta 標籤自動將用戶重定向到指定的頁面（2.login.html）
+    // content='3; url=2.login.html' 表示在 3 秒後跳轉到 2.login.html 頁面
+    echo "<meta http-equiv=REFRESH content='3; url=2.login.html'>";
+
+    // 此 meta 標籤的應用是用於在沒有 JavaScript 支持的情況下，提供一個自動重定向的功能
+    // 這樣用戶在看到 "登出成功" 的消息後，會自動被重定向到登錄頁面
+?>
